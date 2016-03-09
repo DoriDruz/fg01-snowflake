@@ -7,9 +7,6 @@
 	<body>
 		<canvas height='650' width='750' id='example'></canvas>
 		<script>
-		//<p> Итерация </p
-		//<input type="text"  id="step">
-		//<button onClick='return stepIter()' type="submit" >Номер шага</button>
 			var example = document.getElementById("example"),
 			ctx = example.getContext('2d');
 			ctx.fillStyle="#9999ff";
@@ -35,10 +32,10 @@
 
 			ctx.beginPath();
 			if(iteration == 1){
-			ctx.moveTo(pOne.x, pOne.y);
-			ctx.lineTo(pTwo.x, pTwo.y);
-			ctx.lineTo(pThree.x, pThree.y);
-			ctx.lineTo(pOne.x, pOne.y);
+				ctx.moveTo(pOne.x, pOne.y);
+				ctx.lineTo(pTwo.x, pTwo.y);
+				ctx.lineTo(pThree.x, pThree.y);
+				ctx.lineTo(pOne.x, pOne.y);
 			}
 			else{
 				for(var i = 0; i < iteration; i++){

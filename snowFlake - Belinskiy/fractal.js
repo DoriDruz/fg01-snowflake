@@ -3,21 +3,18 @@ function Point(x,y){
   this.y = y;
 }
 function getD(p1,p2){
-  return Math.sqrt((Math.pow(p2.x-p1.x,2)+Math.pow(p2.y-p1.y,2)));
+  return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
 }
 function findAngle(p1,p2){
   var angle;
-  if ((p2.x >= p1.x) && (p2.y >= p1.y)){
+  if ((p2.x >= p1.x) && (p2.y >= p1.y) || (p2.x >= p1.x) && (p2.y <= p1.y)){
     angle = Math.atan((p2.y-p1.y)/(p2.x-p1.x));
   }
-  if ((p2.x <= p1.x) && (p2.y >= p1.y)){
+  else if ((p2.x <= p1.x) && (p2.y >= p1.y)){
     angle = Math.PI/2 + Math.atan((p1.x-p2.x)/(p2.y-p1.y));
   }
-  if ((p2.x <= p1.x) && (p2.y <= p1.y)){
+  else if ((p2.x <= p1.x) && (p2.y <= p1.y)){
     angle = Math.PI + Math.atan((p1.y-p2.y)/(p1.x-p2.x));
-  }
-  if ((p2.x >= p1.x) && (p2.y <= p1.y)){
-    angle = Math.atan((p2.y-p1.y)/(p2.x-p1.x));
   }
   return angle;
 }
@@ -75,14 +72,9 @@ function equalizer(arrayOne, arrayTwo){
 }
 function iterStep(iteration){
   iteration = prompt("Введите шаг итерации ", 0);
-  if(iteration < 0 || iteration > 8 || isNaN(iteration) == true){
+  if(iteration < 1 || iteration > 8 || isNaN(iteration) == true){
     alert("Please, input number from 1 to 8");
     iteration = iterStep(iteration);
   }
   return iteration;
 }
-/*function stepIter() {
-   var input = document.getElementById('step').value;
-   console.log("input " + input);
-   return input;
-}*/
